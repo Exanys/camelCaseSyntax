@@ -2,7 +2,12 @@ const vstup = document.getElementById('text');
 const btn = document.getElementById('btn');
 let textClean;
 let textAr;
-let complText = 0;
+let complText;
+let text
+
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 btn.addEventListener('click', function(){
     textClean = vstup.value.replace(/[^a-zA-Z ]/g, "")
@@ -16,7 +21,8 @@ btn.addEventListener('click', function(){
         if(i == 0){
             complText = textAr[0];
         }else{
-            complText += textAr[i];
+            text = capitalize(textAr[i]);
+            complText += text;
         }
     }
     console.log(complText);
