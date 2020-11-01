@@ -12,7 +12,8 @@ function capitalize(string) {
 
 btn.addEventListener('click', function(){
     if (vstup.value[0] >= 0 && vstup.value[0] <= 9) {
-        vystup.innerHTML = `Nesmi zacinat cislem.`;
+        vystup.innerHTML = `Nesmí začínat číslem.`;
+        vstup.value = "";
     } else {
         textClean = vstup.value.replace(/[^a-zA-Z ]/g, "")
         textAr = textClean.split(' ');
@@ -23,13 +24,13 @@ btn.addEventListener('click', function(){
         })
         for(let i = 0; i< textAr.length; i++){
             if(i == 0){
-                complText = textAr[0];
+                complText = textAr[0].toLowerCase();
             }else{
                 text = capitalize(textAr[i]);
                 complText += text;
             }
         }
-        vystup.innerHTML = `Vysledek: ${complText}`;
+        vystup.innerHTML = `Výsledek: ${complText}`;
         vstup.value = "";
         }
 
